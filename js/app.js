@@ -1,4 +1,3 @@
-
 function initMap() {
   var map;
   map = new google.maps.Map(document.querySelector("#map"), {
