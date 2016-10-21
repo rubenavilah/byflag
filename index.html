@@ -33,7 +33,7 @@
 
     <!-- Map -->
     <a href="#" class="toggle-nav btn btn-lg btn-success" id="big-sexy"><i class="fa fa-bars"></i> Buscar Pais</a>
-    <div id="world-map"></div>
+    <div id="world-map" style="height:100%"></div>
     <!-- Modal -->
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-info">Small modal</button>
@@ -43,11 +43,12 @@
         <div class="modal-content">
           <div class="modal-header">
             <button class="close" data-dismiss="modal"><span>&times;</span></button>
-            <h1 class="modal-title"> Colombia</h1>
+            <h1 id="title" class="modal-title"></h1>
           </div> <!--Modal-header-->
-          <img aling="center" src="img/Flag_of_Colombia.svg" alt="flag-image"/>
+          <img id="flag" aling="center" src="#" alt="flag-image"/>
           <div class="modal-footer">
-            <h4 class="col-xs-5 text-left">Precio: $ 4 USD </h4>
+            <h4 id="precio" class="col-xs-5 text-left"> </h4>
+            <button type="button" class="btn btn-primary">Ver departamentos</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Add</button>
           </div> <!--Modal-footer-->

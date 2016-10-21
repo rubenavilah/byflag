@@ -1,3 +1,22 @@
+var flags =
+{
+  CO:{
+    codigo: "CO",
+    nombre: "Colombia",
+    bandera: "img/Flag_of_Colombia.svg",
+    cmyk: {
+      color1:{C:0, M:0, Y:100, K:0},
+      color2:{C:100, M:45, Y:0, K:0},
+      color3:{C:0, M:0, Y:100, K:0},
+    },
+    rgb: {
+      color1:{R:0,G:0,B:0},
+      color2:{R:0,G:0,B:0},
+      color3:{R:0,G:0,B:0},
+    },
+    precio: "$4,5 USD",
+  },
+};
 $(document).ready(function(){
   console.log("ready");
 
@@ -11,12 +30,17 @@ $(document).ready(function(){
       }
     },
     onRegionClick: function(event, code){
-      console.log(event);
-      console.log(code);
-      console.log(map.getRegionName(code));
-    }
-
+        var title = document.querySelector("#title");
+        var flag = document.querySelector("#flag");
+        var precio = document.querySelector("#precio");
+        title.innerHTML = flags[code].nombre;
+        flag.src = flags[code].bandera;
+        precio.innerHTML = flags[code].precio;
+        $("#modal-info").modal("show");
+        console.log(flags[code]);
+      }
   });
+
 
   // The Toggle Off Canvas
 
