@@ -2,7 +2,6 @@ $(document).ready(function(){
   console.log("ready");
 
   // The Toggle Off Canvas
-
   $(function() {
       // Toggle Nav on Click
       $('.toggle-nav').click(function() {
@@ -11,6 +10,7 @@ $(document).ready(function(){
           console.log("click!");
       });
   });
+  //
   function toggleNav() {
       if ($('#wrapper').hasClass('show-nav')) {
           // Do things on Nav Close
