@@ -6,32 +6,29 @@ $(document).ready(function(){
   map = new jvm.Map({
     container: $('#world-map'),
     map: 'world_mill_en',
+    flags:flags,
     regionStyle: {
       initial: {
         fill: '#B8E186'
       }
     },
     onRegionClick: function(event, code){
-      console.log(event);
-      console.log(code);
-    }
+        var title = document.querySelector("#title");
+        var flag = document.querySelector("#flag");
+        var precio = document.querySelector("#precio");
+        title.innerHTML = flags[code].name;
+        flag.src = flags[code].flag;
+        precio.innerHTML = flags[code].price;
+        $("#modal-info").modal("show");
+      }
   });
 
-  // The country maps
-  var countryTag = function (){
-    console.log(map.regions);
-  };
-
-//   console.log(map.regions);
-// var a = [];
-// for (var key in map.regions) {
-//   a.push(map.regions[key]);
-//   console.log(a);
-//   var country = $("#country").append("<li>");
-//   // country.append(el.config.name);
-// }
-
-
+  var a = [];
+  for (var key in flags) {
+    a.push(flags[key].name);
+    console.log(a);
+    var country = $("#country").append("<li>"+a +"</li>");
+  }
 
   // The Toggle Off Canvas
   $(function() {
