@@ -2,6 +2,7 @@ $(document).ready(function(){
   console.log("ready");
 
   var map;
+
   map = new jvm.Map({
     container: $('#world-map'),
     map: 'world_mill_en',
@@ -13,10 +14,24 @@ $(document).ready(function(){
     onRegionClick: function(event, code){
       console.log(event);
       console.log(code);
-      console.log(map.getRegionName(code));
     }
-
   });
+
+  // The country maps
+  var countryTag = function (){
+    console.log(map.regions);
+  };
+
+//   console.log(map.regions);
+// var a = [];
+// for (var key in map.regions) {
+//   a.push(map.regions[key]);
+//   console.log(a);
+//   var country = $("#country").append("<li>");
+//   // country.append(el.config.name);
+// }
+
+
 
   // The Toggle Off Canvas
   $(function() {
