@@ -7,8 +7,8 @@
 
   <!--The CSS -->
   <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-  <!-- <link rel="stylesheet" href="css/vendor/normalize.css"> -->
+  <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <link rel="stylesheet" href="css/vendor/normalize.css"> -->
   <link rel="stylesheet" href="css/vendor/jquery-jvectormap-2.0.3.css">
   <link rel="stylesheet" href="css/style.css">
   <!-- The JS -->
@@ -27,27 +27,37 @@
   <section id="canvas">
 
     <!-- OffCanavas Left Search Country -->
-    <menu id="menu">
+    <menu id="search">
       <a href="#" class="toggle-nav"><i class="fa fa-times"></i></a>
       <h2>Buscar pais</h2>
 
       <section>
         <button id="order">Ordenar</button>
-        <ul id="country" class="list-unstyled"></ul>
+        <ul id="country" class="list-unstyled">
+        </ul>
       </section>
     </menu>
 
+    <menu id="shopping">
+      <a href="#" class="toggle-nav"><i class="fa fa-times"></i></a>
+      <h2>Shopping Cart</h2>
+    </menu>
+
     <!-- World Map -->
-    <a href="#" class="toggle-nav btn btn-lg btn-success" id="big-sexy"><i class="fa fa-bars"></i> Buscar Pais</a>
-    <div id="world-map" style="height:100%"></div>
-    <!-- Colombian map -->
-    <div id="co-map" style="height:100%" >
-      <button id="back" type="button" class="btn btn-danger">Back</button>
+    <div class="themap">
+      <a href="#" class="toggle-nav btn btn-lg btn-success btn-control" id="find"><i class="fa fa-bars"></i> Buscar Pais</a>
+      <div id="world-map"></div>
+      <!-- Colombian map -->
+      <div id="co-map">
+        <button id="back" type="button" class="btn btn-danger btn-control">Back</button>
+      </div>
     </div>
-    <!-- Modal -->
+    <div class="shopping">
+      <h2>Comprar</h2>
+      <h3>Carrito</h3>
+    </div>
   </section>
 
-  <!-- Off Canvas -->
   <div id="modal-info" class="modal fade" >
       <div class="modal-dialog">
         <div class="modal-content">
@@ -65,7 +75,6 @@
         </div> <!--Modal-content-->
       </div> <!--Modal-dialog-->
     </div>  <!--Modal fade-->
-
 </main>
 </body>
 </html>
