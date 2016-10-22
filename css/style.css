@@ -26,7 +26,7 @@ html, body{
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 
-  padding: 5% 0; /* Temp: Just spacing. */
+  padding: 0 0; /* Temp: Just spacing. */
 
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -49,4 +49,15 @@ html, body{
   background: #428bca;
   padding: 15px;
   margin-top: 0;
+  overflow-y: scroll;
+}
+#world-map{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+.btn-control{
+  position: fixed;
+  z-index: 1;
 }

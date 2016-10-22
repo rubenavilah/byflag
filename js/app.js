@@ -1,15 +1,13 @@
 $(document).ready(function(){
-  console.log("ready");
 
   var map;
-
   map = new jvm.Map({
     container: $('#world-map'),
     map: 'world_mill_en',
     flags:flags,
     regionStyle: {
       initial: {
-        fill: '#B8E186'
+        fill: '#C6E5D9'
       }
     },
     onRegionClick: function(event, code){
@@ -23,12 +21,36 @@ $(document).ready(function(){
       }
   });
 
-  var a = [];
-  for (var key in flags) {
-    a.push(flags[key].name);
-    console.log(a);
-    var country = $("#country").append("<li>"+a +"</li>");
+var country = flags;
+for (var codeCountry in country) {
+  var theName = flags[codeCountry].name;
+  $("#country").append("<li>" + codeCountry + " " + theName + "</li>");
+}
+
+var keys = [];
+for (var key in flags) {
+  if (flags.hasOwnProperty(key)) {
+    keys.push(key);
   }
+}
+keys.sort();
+console.log(keys);
+
+var order = $("#order").on("click", function(){
+    $("#country").empty();
+
+  });
+
+
+
+  // var a = [];
+  // var b = [];
+  // for (var key in flags) {
+  //   a.push(flags[key].name);
+  //   b.push(flags[key].code);
+  //   var country = $("#country").append("<li>" + a + "</li>");
+  // }
+
 
   // The Toggle Off Canvas
   $(function() {
