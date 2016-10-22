@@ -103,7 +103,7 @@ $(document).ready(function(){
       var backButton =  document.querySelector("#back");
       // hide the colombian map and back button
       coDiv.setAttribute('class', 'hidden');
-            backButton.style.visibility = "hidden";
+      backButton.style.visibility = "hidden";
       //Display the world map
       worldDiv.removeAttribute('class', 'hidden');
   });
