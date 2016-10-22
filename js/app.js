@@ -34,25 +34,6 @@ $(document).ready(function(){
     },
   });
 
-var country = flags;
-for (var codeCountry in country) {
-  var theName = flags[codeCountry].name;
-  $("#country").append("<li>" + codeCountry + " " + theName + "</li>");
-}
-
-var keys = [];
-for (var key in flags) {
-  if (flags.hasOwnProperty(key)) {
-    keys.push(key);
-  }
-}
-keys.sort();
-console.log(keys);
-
-var order = $("#order").on("click", function(){
-    $("#country").empty();
-
-  });
 
 
 
