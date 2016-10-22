@@ -79,17 +79,25 @@ coMap = new jvm.Map({
       openModal(code);
   },
   });
-
   /* function open modal Country */
   function openModal(code) {
     selectedRegion = code;
     var title = document.querySelector("#title");
     var flag = document.querySelector("#flag");
     var price = document.querySelector("#price");
+    var viewDepartments = document.querySelector("#view_departments");
     //Modifed HTML elements
     title.innerHTML = flags[code].name;
     flag.src = flags[code].flag;
     price.innerHTML = flags[code].price;
+    console.log(code);
+    // Hide and show view departments button
+    if(code === "CO")
+    {
+      viewDepartments.style.visibility = "visible";
+    }else {
+      viewDepartments.style.visibility = "hidden";
+    }
     $("#modal-info").modal("show");
   }
 
@@ -100,7 +108,7 @@ coMap = new jvm.Map({
       var str = "<li>" + "<a" + " id=" + "'" + codeCountry + "'" + " href=" + "'#'" + ">" + codeCountry + " " + theName + "</a>" + " </li>";
       $("#country").append(str);
   }
-
+  
 //The Country maps get Click in Search
 var idcountry = $("#country li a").on("click", function(){
   openModal(this.getAttribute("id"));
@@ -136,6 +144,8 @@ var back = $("#back").on("click", function(){
   //jq Fucntion that execute the event click add to shopping car button
   var add_car_btn = $("#add_button").on("click", function(){
     shopingCar.add(selectedRegion);
+    // Hide the modal
+    $('#modal-info').modal('hide');
   });
 
 });// End Document.Ready()
