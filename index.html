@@ -6,23 +6,37 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <!--The CSS -->
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <!-- <link rel="stylesheet" href="css/vendor/normalize.css"> -->
+  <link rel="stylesheet" href="css/vendor/jquery-jvectormap-2.0.3.css">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/jquery-jvectormap-2.0.3.css">
   <!-- The JS -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/bootstrap.js"></script>
-  <script src="js/jquery-jvectormap-2.0.3.min.js"></script>
-  <script src="js/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/vendor/jquery-jvectormap-2.0.3.min.js"></script>
+  <script src="js/vendor/jquery-jvectormap-world-mill-en.js"></script>
   <script src="js/app.js"></script>
   <title>ByMap</title>
 </head>
 <body>
-<main>
-  <section id="filter">The filter</section>
-  <section id="car">The car</section>
+
+<main id="wrapper">
+  <section id="canvas">
+
+    <!-- OffCanavas Left Search Country -->
+    <menu id="menu">
+      <a href="#" class="toggle-nav"><i class="fa fa-times"></i></a>
+      <h2>Buscar pais</h2>
+      <p>Contenido</p>
+    </menu>
+
+    <!-- Map -->
+    <a href="#" class="toggle-nav btn btn-lg btn-success" id="big-sexy"><i class="fa fa-bars"></i> Buscar Pais</a>
+    <div id="world-map"></div>
+
+  </section>
+
 </main>
-  <div id="world-map"></div>
 </body>
 </html>
