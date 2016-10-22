@@ -2,23 +2,25 @@ $(document).ready(function(){
 
   var map;
   map = new jvm.Map({
-    container: $('#world-map'),
-    map: 'world_mill_en',
-    flags:flags,
+    container: $("#world-map"),
+    map: "world_mill_en",
     regionStyle: {
       initial: {
-        fill: '#C6E5D9'
+        fill: "#B8E186"
       }
     },
     onRegionClick: function(event, code){
-        var title = document.querySelector("#title");
-        var flag = document.querySelector("#flag");
-        var precio = document.querySelector("#precio");
-        title.innerHTML = flags[code].name;
-        flag.src = flags[code].flag;
-        precio.innerHTML = flags[code].price;
-        $("#modal-info").modal("show");
-      }
+      console.log(event);
+      console.log(code);
+      var title = document.querySelector("#title");
+      var flag = document.querySelector("#flag");
+      var price = document.querySelector("#price");
+      //Modifed HTML elements
+      title.innerHTML = flags[code].name;
+      flag.src = flags[code].flag;
+      price.innerHTML = flags[code].price;
+      $("#modal-info").modal("show");
+    },
   });
 
 var country = flags;
@@ -51,11 +53,11 @@ var order = $("#order").on("click", function(){
   //   var country = $("#country").append("<li>" + a + "</li>");
   // }
 
-
+});
   // The Toggle Off Canvas
-  $(function() {
+  $(function(){
       // Toggle Nav on Click
-      $('.toggle-nav').click(function() {
+      $(".toggle-nav").click(function() {
           // Calling a function in case you want to expand upon this.
           toggleNav();
           console.log("click!");
@@ -63,12 +65,11 @@ var order = $("#order").on("click", function(){
   });
   //
   function toggleNav() {
-      if ($('#wrapper').hasClass('show-nav')) {
+      if ($("#wrapper").hasClass("show-nav")) {
           // Do things on Nav Close
-          $('#wrapper').removeClass('show-nav');
+          $("#wrapper").removeClass("show-nav");
       } else {
           // Do things on Nav Open
-          $('#wrapper').addClass('show-nav');
+          $("#wrapper").addClass("show-nav");
       }
   }
-});
