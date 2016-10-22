@@ -1,19 +1,33 @@
+var selectedRegion = String();
 /*Shoping Car Object*/
 var shopingCar = {
   total: 0,
   quantity: 0,
   flags: [],
   add: function (code) {
-    selectedcode = {
-      name: flags[code].name,
-      flag: flags[code].flag,
-      price: flags[code].price,
-    };
-    this.flags.push(selectedcode);
-    this.quantity++;
-    this.total = this.total + selectedcode.price;
-    console.log(shopingCar);
+    var codekyes = (Object.keys(this.flags));
+
+    if( codekyes.indexOf(code) < 0 ){
+      selectedcode = {
+        code: code,
+        name: flags[code].name,
+        flag: flags[code].flag,
+        price: flags[code].price,
+      };
+      this.flags.push(selectedcode);
+      this.quantity++;
+      this.total = this.total + selectedcode.price;
+      var strName = " <li> "+flags[code].name+" </li>";
+      var strFlag = " <li> <img style='height:70px' src='"+flags[code].flag+"'> </li>";
+      var strPrice = "<li> $ "+flags[code].price+" USD</li>";
+      var strTotal = document.querySelector("#total");
+      strTotal.innerHTML = "Total: " +this.total;
+      $("#flags_list").append(strName);
+      $("#flags_list").append(strFlag);
+      $("#flags_list").append(strPrice);
+    }
   },
+
   remove: function () {
     /**/
   },
@@ -50,6 +64,7 @@ $(document).ready(function(){
   },
   // Event click in some region
   onRegionClick: function(event, code) {
+    console.log(map.regions);
       openModal(code);
   },
 });
@@ -104,15 +119,15 @@ coMap = new jvm.Map({
   // The Country Flags print y Search
   var country = flags;
   for (var codeCountry in country) {
-      var theName = flags[codeCountry].name;
-      var str = "<li>" + "<a" + " id=" + "'" + codeCountry + "'" + " href=" + "'#'" + ">" + codeCountry + " " + theName + "</a>" + " </li>";
-      $("#country").append(str);
+    var theName = flags[codeCountry].name;
+    var str = "<li>" + "<a" + " id=" + "'" + codeCountry + "'" + " href=" + "'#'" + ">" + codeCountry + " " + theName + "</a>" + " </li>";
+    $("#country").append(str);
   }
-  
-//The Country maps get Click in Search
-var idcountry = $("#country li a").on("click", function(){
-  openModal(this.getAttribute("id"));
-});
+
+  //The Country maps get Click in Search
+  var idcountry = $("#country li a").on("click", function(){
+    openModal(this.getAttribute("id"));
+  });
 
 // jq Fucntion that execute the event click from view departments button
 var viewDepartments = $("#view_departments").on("click", function(){
