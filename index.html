@@ -16,6 +16,7 @@
   <script src="./js/vendor/bootstrap.min.js"></script>
   <script src="./js/vendor/jquery-jvectormap-2.0.3.min.js"></script>
   <script src="./js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="./js/db.js"></script>
   <script src="./js/app.js"></script>
   <title>ByMap</title>
 </head>
@@ -28,7 +29,9 @@
     <menu id="menu">
       <a href="#" class="toggle-nav"><i class="fa fa-times"></i></a>
       <h2>Buscar pais</h2>
-      <p>Contenido</p>
+      <section>
+        <ul id="country"></ul>
+      </section>
     </menu>
 
     <!-- Map -->
@@ -37,6 +40,8 @@
     <div id="co-map" style="height:50%"></div>
     <!-- Modal -->
   </section>
+
+  <!-- Off Canvas -->
   <div id="modal-info" class="modal fade" >
       <div class="modal-dialog">
         <div class="modal-content">
