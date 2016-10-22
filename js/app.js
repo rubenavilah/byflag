@@ -4,10 +4,21 @@ $(document).ready(function(){
   map = new jvm.Map({
     container: $("#world-map"),
     map: "world_mill_en",
+    backgroundColor: "#547980",
+    zoomOnScroll: true,
+    zoomOnScrollSpeed: 5,
+    panOnDrag: true,
+    zoomMax: 4,
     regionStyle: {
       initial: {
-        fill: "#B8E186"
-      }
+        fill: "#E5FCC2",
+        "stroke-opacity" : 1,
+      },
+      hover: {
+        "fill-opacity": 0.1,
+        cursor: 'pointer',
+        fill: "#9DE0AD",
+      },
     },
     onRegionClick: function(event, code){
       console.log(event);
