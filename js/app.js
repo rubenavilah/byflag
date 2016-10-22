@@ -1,4 +1,8 @@
+var selectedRegion = "";
+
+/* function open modal info */
 function openModal(code) {
+  selectedRegion = code;
   var title = document.querySelector("#title");
   var flag = document.querySelector("#flag");
   var price = document.querySelector("#price");
@@ -8,7 +12,31 @@ function openModal(code) {
   price.innerHTML = flags[code].price;
   $("#modal-info").modal("show");
 }
+/*Shoping Car Object*/
+var shopingCar = {
+  total: 0,
+  quantity: 0,
+  flags: [],
+  add: function (code) {
+    selectedcode = {
+      name: flags[code].name,
+      flag: flags[code].flag,
+      price: flags[code].price,
+    };
+    this.flags.push(selectedcode);
+    this.quantity++;
+    this.total = this.total + selectedcode.price;
+    console.log(shopingCar);
+  },
+  remove: function () {
+    /**/
+  },
+  buy: function () {
+    /**/
+  }
+};
 
+/* When the document is ready */
 $(document).ready(function(){
   var map;
   map = new jvm.Map({
@@ -22,21 +50,26 @@ $(document).ready(function(){
     onRegionClick: function(event, code){
         openModal(code);
     },
+
   });
 
+/* append li child to ul parent */
 var country = flags;
 for (var codeCountry in country) {
   var theName = flags[codeCountry].name;
   var str = "<li>" +"<a" + " id=" + "'" + codeCountry + "'" +" href=" +"'#'" +">" +codeCountry +" " +theName +"</a>" +" </li>";
   $("#country").append(str);
 }
-
 var idcountry = $("#country li a").on("click", function(){
   openModal(this.getAttribute("id"));
-  //console.log(this);
-  //console.log(this.getAttribute("id"));
 });
 
+var add_car_btn = $("#add_button").on("click", function(){
+  shopingCar.add(selectedRegion);
+  });
+});
+
+/* */
 var keys = [];
 for (var key in flags) {
   if (flags.hasOwnProperty(key)) {
@@ -46,12 +79,9 @@ for (var key in flags) {
 
 keys.sort();
 //console.log(keys);
-
 var order = $("#order").on("click", function(){
     $("#country").empty();
   });
-
-
 
   // var a = [];
   // var b = [];
@@ -61,7 +91,6 @@ var order = $("#order").on("click", function(){
   //   var country = $("#country").append("<li>" + a + "</li>");
   // }
 
-});
   // The Toggle Off Canvas
   $(function(){
       // Toggle Nav on Click

@@ -13,11 +13,11 @@ var flags =
       color2:{R:0,G:0,B:0},
       color3:{R:0,G:0,B:0},
     },
-    price: "$4,5 USD",
+    price: 4.5,
   },
   BR:{
     name: "Brasil",
-    flag: "img/Flag_of_Colombia.svg",
+    flag: "img/brazilflag.png",
     cmyk: {
       color1:{C:0, M:0, Y:100, K:0},
       color2:{C:100, M:45, Y:0, K:0},
@@ -28,7 +28,7 @@ var flags =
       color2:{R:0,G:0,B:0},
       color3:{R:0,G:0,B:0},
     },
-    price: "$4,5 USD",
+    price: 4.5,
   },
   VE:{
     name: "Venezuela",
@@ -43,6 +43,6 @@ var flags =
       color2:{R:0,G:0,B:0},
       color3:{R:0,G:0,B:0},
     },
-    price: "$10 USD",
+    price: 10,
   },
 };
