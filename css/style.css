@@ -64,3 +64,23 @@ html, body{
   position: fixed;
   z-index: 1;
 }
+.jvectormap-zoomin, .jvectormap-zoomout{
+  position: absolute;
+  border-radius: 50%;
+  background: #45ADA8;
+  padding: 3px;
+  color: #9DE0AD;
+  font-size: 30px;
+  cursor: pointer;
+  line-height: 25px;
+  text-align: center;
+  box-sizing: content-box;
+  width: 30px;
+  height: 30px;
+}
+.jvectormap-zoomin{
+  top: 80px;
+}
+.jvectormap-zoomout{
+  top: 125px;
+}
