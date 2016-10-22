@@ -16,6 +16,7 @@
   <script src="./js/vendor/bootstrap.min.js"></script>
   <script src="./js/vendor/jquery-jvectormap-2.0.3.min.js"></script>
   <script src="./js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="./js/vendor/jquery-jvectormap-co-mill.js"></script>
   <script src="./js/db.js"></script>
   <script src="./js/app.js"></script>
   <title>ByMap</title>
@@ -36,10 +37,13 @@
       </section>
     </menu>
 
-    <!-- Map -->
+    <!-- World Map -->
     <a href="#" class="toggle-nav btn btn-lg btn-success" id="big-sexy"><i class="fa fa-bars"></i> Buscar Pais</a>
     <div id="world-map" style="height:100%"></div>
-    <div id="co-map" style="height:50%"></div>
+    <!-- Colombian map -->
+    <div id="co-map" style="height:100%" >
+      <button id="back" type="button" class="btn btn-danger">Back</button>
+    </div>
     <!-- Modal -->
   </section>
 
@@ -54,7 +58,7 @@
           <img id="flag" aling="center" src="#" alt="flag-image"/>
           <div class="modal-footer">
             <h4 id="price" class="col-xs-5 text-left"> </h4>
-            <button id="view_departments" type="button" class="btn btn-default">Ver departamentos</button>
+            <button id="view_departments" type="button" class="btn btn-default">View Departments</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Add</button>
           </div> <!--Modal-footer-->
