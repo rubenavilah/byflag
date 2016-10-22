@@ -1,17 +1,3 @@
-var selectedRegion = "";
-
-/* function open modal info */
-function openModal(code) {
-  selectedRegion = code;
-  var title = document.querySelector("#title");
-  var flag = document.querySelector("#flag");
-  var price = document.querySelector("#price");
-  //Modifed HTML elements
-  title.innerHTML = flags[code].name;
-  flag.src = flags[code].flag;
-  price.innerHTML = flags[code].price;
-  $("#modal-info").modal("show");
-}
 /*Shoping Car Object*/
 var shopingCar = {
   total: 0,
@@ -38,58 +24,122 @@ var shopingCar = {
 
 /* When the document is ready */
 $(document).ready(function(){
+  // Variables from maps
   var map;
-  map = new jvm.Map({
-    container: $("#world-map"),
-    map: "world_mill_en",
-    regionStyle: {
-      initial: {
-        fill: "#B8E186"
-      }
-    },
-    onRegionClick: function(event, code){
-        openModal(code);
-    },
+  var coMap;
 
+  // Definition from world map
+  map = new jvm.Map({
+  container: $("#world-map"),
+  map: "world_mill_en",
+  backgroundColor: "#547980",
+  zoomOnScroll: true,
+  zoomOnScrollSpeed: 5,
+  panOnDrag: true,
+  zoomMax: 4,
+  regionStyle: {
+      initial: {
+          fill: "#E5FCC2",
+          "stroke-opacity": 1,
+      },
+      hover: {
+          "fill-opacity": 0.1,
+          cursor: 'pointer',
+          fill: "#9DE0AD",
+      },
+  },
+  // Event click in some region
+  onRegionClick: function(event, code) {
+      openModal(code);
+  },
+});
+
+// Definition from world map
+coMap = new jvm.Map({
+  container: $("#co-map"),
+  map: "co_mill",
+  backgroundColor: "#547980",
+  zoomOnScroll: true,
+  zoomOnScrollSpeed: 5,
+  panOnDrag: true,
+  zoomMax: 4,
+  regionStyle: {
+      initial: {
+          fill: "#E5FCC2",
+          "stroke-opacity": 1,
+      },
+      hover: {
+          "fill-opacity": 0.1,
+          cursor: 'pointer',
+          fill: "#9DE0AD",
+      },
+  },
+  // Event click in some region
+  onRegionClick: function(event, code) {
+      openModal(code);
+  },
   });
 
-/* append li child to ul parent */
-var country = flags;
-for (var codeCountry in country) {
-  var theName = flags[codeCountry].name;
-  var str = "<li>" +"<a" + " id=" + "'" + codeCountry + "'" +" href=" +"'#'" +">" +codeCountry +" " +theName +"</a>" +" </li>";
-  $("#country").append(str);
-}
+  /* function open modal Country */
+  function openModal(code) {
+    selectedRegion = code;
+    var title = document.querySelector("#title");
+    var flag = document.querySelector("#flag");
+    var price = document.querySelector("#price");
+    //Modifed HTML elements
+    title.innerHTML = flags[code].name;
+    flag.src = flags[code].flag;
+    price.innerHTML = flags[code].price;
+    $("#modal-info").modal("show");
+  }
+
+  // The Country Flags print y Search
+  var country = flags;
+  for (var codeCountry in country) {
+      var theName = flags[codeCountry].name;
+      var str = "<li>" + "<a" + " id=" + "'" + codeCountry + "'" + " href=" + "'#'" + ">" + codeCountry + " " + theName + "</a>" + " </li>";
+      $("#country").append(str);
+  }
+
+//The Country maps get Click in Search
 var idcountry = $("#country li a").on("click", function(){
   openModal(this.getAttribute("id"));
 });
 
-var add_car_btn = $("#add_button").on("click", function(){
-  shopingCar.add(selectedRegion);
-  });
+// jq Fucntion that execute the event click from view departments button
+var viewDepartments = $("#view_departments").on("click", function(){
+    // Gets the divs from the maps
+    var coDiv = document.querySelector("#co-map");
+    var worldDiv = document.querySelector("#world-map");
+    var backButton =  document.querySelector("#back");
+    //Display the colombian map and back button
+    coDiv.removeAttribute('class', 'hidden');
+    backButton.style.visibility = "visible";
+    // hide the world map
+    worldDiv.setAttribute('class', 'hidden');
+    // Hide the modal
+    $('#modal-info').modal('hide');
 });
 
-/* */
-var keys = [];
-for (var key in flags) {
-  if (flags.hasOwnProperty(key)) {
-    keys.push(key);
-  }
-}
-
-keys.sort();
-//console.log(keys);
-var order = $("#order").on("click", function(){
-    $("#country").empty();
+// jq Fucntion that execute the event click from back button
+var back = $("#back").on("click", function(){
+    // Gets the divs from the maps
+    var coDiv = document.querySelector("#co-map");
+    var worldDiv = document.querySelector("#world-map");
+    var backButton =  document.querySelector("#back");
+    // hide the colombian map and back button
+    coDiv.setAttribute('class', 'hidden');
+    backButton.style.visibility = "hidden";
+    //Display the world map
+    worldDiv.removeAttribute('class', 'hidden');
+  });
+  //jq Fucntion that execute the event click add to shopping car button
+  var add_car_btn = $("#add_button").on("click", function(){
+    shopingCar.add(selectedRegion);
   });
 
-  // var a = [];
-  // var b = [];
-  // for (var key in flags) {
-  //   a.push(flags[key].name);
-  //   b.push(flags[key].code);
-  //   var country = $("#country").append("<li>" + a + "</li>");
-  // }
+});// End Document.Ready()
+
 
   // The Toggle Off Canvas
   $(function(){
