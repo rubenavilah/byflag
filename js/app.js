@@ -1,5 +1,15 @@
-$(document).ready(function(){
+function openModal(code) {
+  var title = document.querySelector("#title");
+  var flag = document.querySelector("#flag");
+  var price = document.querySelector("#price");
+  //Modifed HTML elements
+  title.innerHTML = flags[code].name;
+  flag.src = flags[code].flag;
+  price.innerHTML = flags[code].price;
+  $("#modal-info").modal("show");
+}
 
+$(document).ready(function(){
   var map;
   map = new jvm.Map({
     container: $("#world-map"),
@@ -10,24 +20,22 @@ $(document).ready(function(){
       }
     },
     onRegionClick: function(event, code){
-      console.log(event);
-      console.log(code);
-      var title = document.querySelector("#title");
-      var flag = document.querySelector("#flag");
-      var price = document.querySelector("#price");
-      //Modifed HTML elements
-      title.innerHTML = flags[code].name;
-      flag.src = flags[code].flag;
-      price.innerHTML = flags[code].price;
-      $("#modal-info").modal("show");
+        openModal(code);
     },
   });
 
 var country = flags;
 for (var codeCountry in country) {
   var theName = flags[codeCountry].name;
-  $("#country").append("<li>" + codeCountry + " " + theName + "</li>");
+  var str = "<li>" +"<a" + " id=" + "'" + codeCountry + "'" +" href=" +"'#'" +">" +codeCountry +" " +theName +"</a>" +" </li>";
+  $("#country").append(str);
 }
+
+var idcountry = $("#country li a").on("click", function(){
+  openModal(this.getAttribute("id"));
+  //console.log(this);
+  //console.log(this.getAttribute("id"));
+});
 
 var keys = [];
 for (var key in flags) {
@@ -35,12 +43,12 @@ for (var key in flags) {
     keys.push(key);
   }
 }
+
 keys.sort();
-console.log(keys);
+//console.log(keys);
 
 var order = $("#order").on("click", function(){
     $("#country").empty();
-
   });
 
 
@@ -60,7 +68,7 @@ var order = $("#order").on("click", function(){
       $(".toggle-nav").click(function() {
           // Calling a function in case you want to expand upon this.
           toggleNav();
-          console.log("click!");
+          //console.log("click!");
       });
   });
   //
