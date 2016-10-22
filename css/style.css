@@ -39,20 +39,47 @@ html, body{
   -webkit-transform: translateX(300px);
   transform: translateX(300px);
 
+  -webkit-transform: translateX(-300px);
+  transform: translateX(-300px);
+
   -webkit-transform: translate3d(300px, 0, 0);
   transform: translate3d(300px, 0, 0);
 }
 
-#menu {
+#search {
   width: 300px;
   height: 100%;
   position: absolute;
   top: 0;
   left: -300px;
+  background: #9DE0AD;
+  padding: 15px;
+  margin-top: 0;
+  overflow-y: scroll;
+}
+
+#shopping {
+  width: 300px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -300px;
   background: #45ADA8;
   padding: 15px;
   margin-top: 0;
   overflow-y: scroll;
+}
+.themap{
+  width: 80%;
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+}
+.shopping{
+  width: 19%;
+  height: 100%;
+  display: inline-block;
+  background: #9DE0AD;
 }
 #world-map{
   height: 100%;

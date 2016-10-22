@@ -1,5 +1,17 @@
 $(document).ready(function(){
 
+  function openModal(code) {
+    var title = document.querySelector("#title");
+    var flag = document.querySelector("#flag");
+    var price = document.querySelector("#price");
+    //Modifed HTML elements
+    title.innerHTML = flags[code].name;
+    flag.src = flags[code].flag;
+    price.innerHTML = flags[code].price;
+    console.log("entro");
+    $("#modal-info").modal("show");
+  }
+
   var map;
   map = new jvm.Map({
     container: $("#world-map"),
@@ -21,30 +33,33 @@ $(document).ready(function(){
       },
     },
     onRegionClick: function(event, code){
-      console.log(event);
-      console.log(code);
-      var title = document.querySelector("#title");
-      var flag = document.querySelector("#flag");
-      var price = document.querySelector("#price");
-      //Modifed HTML elements
-      title.innerHTML = flags[code].name;
-      flag.src = flags[code].flag;
-      price.innerHTML = flags[code].price;
-      $("#modal-info").modal("show");
+        openModal(code);
     },
   });
 
+var country = flags;
+for (var codeCountry in country) {
+  var theName = flags[codeCountry].name;
+  var str = "<li>" +"<a" + " id=" + "'" + codeCountry + "'" +" href=" +"'#'" +">" +codeCountry +" " +theName +"</a>" +" </li>";
+  $("#country").append(str);
+}
 
+var idcountry = $("#country li a").on("click", function(){
+  openModal(this.getAttribute("id"));
+});
 
+var keys = [];
+for (var key in flags) {
+  if (flags.hasOwnProperty(key)) {
+    keys.push(key);
+  }
+}
 
-  // var a = [];
-  // var b = [];
-  // for (var key in flags) {
-  //   a.push(flags[key].name);
-  //   b.push(flags[key].code);
-  //   var country = $("#country").append("<li>" + a + "</li>");
-  // }
+keys.sort();
 
+var order = $("#order").on("click", function(){
+    $("#country").empty();
+  });
 });
   // The Toggle Off Canvas
   $(function(){
@@ -52,7 +67,7 @@ $(document).ready(function(){
       $(".toggle-nav").click(function() {
           // Calling a function in case you want to expand upon this.
           toggleNav();
-          console.log("click!");
+          //console.log("click!");
       });
   });
   //
