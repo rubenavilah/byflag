@@ -7,8 +7,7 @@
 
   <!--The CSS -->
   <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
-  <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-  <link rel="stylesheet" href="css/vendor/normalize.css"> -->
+  <link rel="stylesheet" href="css/vendor/font-awesome.min.css">
   <link rel="stylesheet" href="css/vendor/jquery-jvectormap-2.0.3.css">
   <link rel="stylesheet" href="css/style.css">
   <!-- The JS -->
@@ -16,6 +15,7 @@
   <script src="./js/vendor/bootstrap.min.js"></script>
   <script src="./js/vendor/jquery-jvectormap-2.0.3.min.js"></script>
   <script src="./js/vendor/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="./js/vendor/jquery-jvectormap-co-mill.js"></script>
   <script src="./js/db.js"></script>
   <script src="./js/app.js"></script>
   <title>ByMap</title>
@@ -31,7 +31,7 @@
       <h2>Buscar pais</h2>
 
       <section>
-        <button id="order">Ordenar</button>
+        <!-- <button id="order">Ordenar</button> -->
         <ul id="country" class="list-unstyled">
         </ul>
       </section>
@@ -42,15 +42,21 @@
       <h2>Shopping Cart</h2>
     </menu>
 
-    <!-- Map -->
+    <!-- World Map -->
     <div class="themap">
-      <a href="#" class="toggle-nav btn btn-lg btn-success btn-control" id="find"><i class="fa fa-bars"></i> Buscar Pais</a>
+      <a href="#" class="toggle-nav btn-find btn-control" id="find"><i class="fa fa-map"></i> Buscar Pais</a>
       <div id="world-map"></div>
-      <div id="co-map"></div>
+      <!-- Colombian map -->
+      <div id="co-map">
+        <button id="back" type="button" class="btn btn-danger btn-control">Back</button>
+      </div>
     </div>
     <div class="shopping">
-      <h2>Comprar</h2>
-      <h3>Carrito</h3>
+      <div class="thecar">
+        <h2><i class="fa fa-shopping-cart"></i> Carrito</h2>
+        <ul class="list-unstyled" id="flags_list"></ul>
+      </div>
+      <h1 id="total"></h1>
     </div>
   </section>
 
@@ -59,14 +65,16 @@
         <div class="modal-content">
           <div class="modal-header">
             <button class="close" data-dismiss="modal"><span>&times;</span></button>
-            <h1 id="title" class="modal-title"></h1>
+            <h1 id="title" class="modal-title text-center"></h1>
           </div> <!--Modal-header-->
-          <img id="flag" aling="center" src="#" alt="flag-image"/>
+          <div class="modal-body">
+            <img id="flag" class="text-center" src="#" alt="flag-image"/>
+          </div>
           <div class="modal-footer">
-            <h4 id="price" class="col-xs-5 text-left"> </h4>
-            <button id="view_departments" type="button" class="btn btn-default">Ver departamentos</button>
+            <h4 id="price" class="col-xs-5 text-left"></h4>
+            <button id="view_departments" type="button" class="btn btn-default">View Departments</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Add</button>
+            <button id="add_button" type="button" class="btn btn-primary">Add Car</button>
           </div> <!--Modal-footer-->
         </div> <!--Modal-content-->
       </div> <!--Modal-dialog-->
