@@ -8,7 +8,6 @@ $(document).ready(function() {
       title.innerHTML = flags[code].name;
       flag.src = flags[code].flag;
       price.innerHTML = flags[code].price;
-      console.log("entro");
       $("#modal-info").modal("show");
   }
 
@@ -52,8 +51,16 @@ $(document).ready(function() {
   });
 
   // Order the countrys in Search
+
   var order = $("#order").on("click", function() {
       $("#country").empty();
+      $(function() {
+        var $list = $("#country");
+
+        $list.children().detach().sort(function(a, b) {
+          return $(a).text().localeCompare($(b).text());
+        }).appendTo($list);
+      });
   });
 });
 
